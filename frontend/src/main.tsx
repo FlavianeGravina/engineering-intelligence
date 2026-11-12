@@ -18,7 +18,7 @@ const weekOf=(date:string)=>{const d=new Date(date+'T00:00:00Z');const dow=(d.ge
 function App(){
  const [squad,setSquad]=React.useState('All squads');
  const [period,setPeriod]=React.useState('30');
- const [apiStatus,setApiStatus]=React.useState('Synthetic demonstration');
+ const apiStatus='Synthetic demonstration';
  const end='2026-11-12';
  const filtered=React.useMemo(()=>events.filter(e=>(squad==='All squads'||e.squad===squad)&&dayDiff(end,e.completed)<Number(period)),[squad,period]);
  const weeks=React.useMemo(()=>{
