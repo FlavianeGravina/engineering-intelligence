@@ -5,8 +5,10 @@ All records are synthetic and must not be interpreted as real team performance.
 from datetime import date, timedelta
 from statistics import mean
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="Engineering Intelligence", version="0.1.0")
+app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"], allow_credentials=False, allow_methods=["GET"], allow_headers=["*"])
 
 TODAY = date(2026, 11, 1)
 DELIVERIES = [
