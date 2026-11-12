@@ -2,6 +2,8 @@
 
 An open-source portfolio project exploring engineering delivery analytics, software architecture and evidence-based continuous improvement.
 
+**[Live dashboard (synthetic demo)](https://engineering-intelligence-pi.vercel.app/)** — hosted on Vercel. The public demo currently uses fixed preview data; the backend API is not deployed.
+
 > **Status:** v0.1 — working API foundation. The web dashboard, deployment and DORA metrics are planned, not implemented yet. All data is synthetic.
 
 ## Current capabilities
