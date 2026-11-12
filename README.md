@@ -24,11 +24,45 @@ uvicorn app.main:app --reload
 
 Open http://127.0.0.1:8000/docs or request `GET /api/v1/metrics`.
 
+## Run the dashboard
+
+Requires Node.js 20+.
+
+In a second terminal:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Open http://localhost:5173.
+
+By default, the dashboard shows explicitly labeled synthetic preview data.
+To connect it to the local API, copy `frontend/.env.example` to
+`frontend/.env` and restart Vite. The backend permits requests from
+`localhost:5173` and `127.0.0.1:5173`.
+
+Production deployment is **not yet configured**. Do not present this
+repository as a hosted application.
+
 ## Run tests
 ```bash
 cd backend
 python -m pytest -q
 ```
+
+## Frontend validation
+
+```bash
+cd frontend
+npm install
+npm run build
+```
+
+GitHub Actions contains independent workflows for backend tests and
+frontend build. A successful workflow run must be verified in the Actions
+tab; the existence of workflow files does not imply a passing build.
 
 ## Endpoints
 | Method | Path | Purpose |
@@ -43,10 +77,11 @@ See [architecture and ADR-001](docs/architecture.md).
 ## Roadmap
 - [x] Deterministic delivery metrics API
 - [x] API tests and architecture documentation
-- [ ] React + TypeScript dashboard
+- [x] React + TypeScript dashboard (preview mode)
 - [ ] PostgreSQL and imports
 - [ ] DORA metrics from explicit deployment and incident events
-- [ ] CI and cloud deployment
+- [x] CI workflow definitions (results pending verification)
+- [ ] Cloud deployment
 
 **Interpretation note:** Throughput and cycle time are process indicators; they do not measure individual developer productivity. No actual company or customer data is included.
 
